@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "data": {
+    "system_name": "AIZZZ fixture",
+    "quota_per_unit": 500000,
+    "currency": "USD"
+  }
+}

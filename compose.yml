@@ -1,0 +1,62 @@
+name: relayops-control-plane
+
+services:
+  relayops:
+    image: ${RELAYOPS_IMAGE:-relayops-control-plane:local}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:18180:18180"
+    environment:
+      RELAYOPS_ADMIN_TOKEN: "${RELAYOPS_ADMIN_TOKEN:?RELAYOPS_ADMIN_TOKEN is required}"
+      RELAYOPS_LISTEN: "0.0.0.0:18180"
+      RELAYOPS_DATA_DIR: "/var/lib/relayops"
+      TMPDIR: "/var/lib/relayops"
+      SQLITE_TMPDIR: "/var/lib/relayops"
+      RELAYOPS_STATIC_DIR: "/app/web/dist"
+      RELAYOPS_DEV_MODE: "false"
+      RELAYOPS_REMOTE_WRITES_ENABLED: "${RELAYOPS_REMOTE_WRITES_ENABLED:-false}"
+      RELAYOPS_AUTOMATION_ENABLED: "${RELAYOPS_AUTOMATION_ENABLED:-false}"
+      RELAYOPS_BACKGROUND_WORKERS_ENABLED: "${RELAYOPS_BACKGROUND_WORKERS_ENABLED:-false}"
+      RELAYOPS_REQUEST_TIMEOUT: "${RELAYOPS_REQUEST_TIMEOUT:-30s}"
+      RELAYOPS_SCHEDULER_TICK: "${RELAYOPS_SCHEDULER_TICK:-10s}"
+      RELAYOPS_COLLECTOR_WORKERS: "${RELAYOPS_COLLECTOR_WORKERS:-2}"
+      RELAYOPS_RUNWAY_ALERT_HOURS: "${RELAYOPS_RUNWAY_ALERT_HOURS:-48}"
+      TZ: "${TZ:-Asia/Hong_Kong}"
+    volumes:
+      - relayops_data:/var/lib/relayops
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "--max-time", "3", "http://127.0.0.1:18180/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    cpus: "${RELAYOPS_CPUS:-0.50}"
+    mem_limit: "${RELAYOPS_MEMORY_LIMIT:-512m}"
+    mem_reservation: "${RELAYOPS_MEMORY_RESERVATION:-128m}"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    stop_grace_period: 20s
+    networks:
+      - relayops_control
+
+volumes:
+  relayops_data:
+
+networks:
+  relayops_control:
+    driver: bridge

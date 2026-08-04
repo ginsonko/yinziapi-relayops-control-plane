@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible RelayOps behavior using sanitized evidence.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include tokens, cookies, passwords, databases, private URLs, or raw authenticated responses.
+  - type: input
+    id: version
+    attributes:
+      label: RelayOps version or commit
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - NewAPI source connector
+        - Sub2API source connector
+        - Connector Manifest
+        - JSON Connector
+        - NewAPI target adapter
+        - Pricing or group mirror
+        - Web console
+        - Browser helper
+        - Storage or operations intelligence
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      description: Include exact steps and a sanitized error class or response shape.
+    validations:
+      required: true
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Sanitized fixture or minimal reproduction
+      description: Preserve field names and billing units, but replace domains, IDs, balances, and credentials.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I removed all credentials and private production data.
+          required: true
+        - label: I reproduced this with remote writes disabled or on a disposable target.
+          required: true

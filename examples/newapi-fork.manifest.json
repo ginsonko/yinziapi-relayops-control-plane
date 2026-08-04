@@ -1,0 +1,32 @@
+{
+  "schema_version": "relayops.connector-manifest/v1",
+  "name": "example-newapi-fork",
+  "adapter_family": "newapi",
+  "origins": {
+    "schemes": ["https"],
+    "hosts": ["api.example.com"]
+  },
+  "auth": {
+    "header": "Authorization",
+    "scheme": "bearer",
+    "user_header": "New-Api-User"
+  },
+  "capabilities": {
+    "status": {
+      "paths": ["/api/status", "/api/setting"],
+      "contract": "native"
+    },
+    "pricing": {
+      "paths": ["/api/pricing"],
+      "contract": "native"
+    },
+    "balance": {
+      "paths": ["/api/account/balance"],
+      "contract": "json",
+      "json_paths": {
+        "amount": "data.balance",
+        "currency": "data.currency"
+      }
+    }
+  }
+}

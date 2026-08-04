@@ -1,0 +1,26 @@
+:root { color-scheme: light; font-family: Inter, "Microsoft YaHei", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 360px; background: #f6f8f8; color: #172323; }
+main { padding: 18px; }
+header { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
+header > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 7px; background: #117b70; color: white; font-weight: 800; }
+header div { min-width: 0; display: grid; gap: 3px; }
+header strong { font-size: 15px; }
+header small { max-width: 270px; overflow: hidden; color: #60706e; text-overflow: ellipsis; white-space: nowrap; }
+label { display: grid; gap: 6px; margin: 12px 0; color: #3f504e; font-size: 12px; font-weight: 700; }
+label > span { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+label small { color: #7b8987; font-size: 9px; font-weight: 500; text-align: right; }
+input { width: 100%; height: 38px; border: 1px solid #cbd5d3; border-radius: 6px; padding: 0 10px; background: white; color: #172323; outline: none; }
+input:focus { border-color: #117b70; box-shadow: 0 0 0 3px rgba(17,123,112,.12); }
+.security-note { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 3px 8px; margin: 14px 0; padding: 10px 11px; border: 1px solid #d5dfdd; border-radius: 6px; background: #fff; }
+.security-note::before { content: "✓"; grid-row: 1 / span 2; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: #e2f1ee; color: #117b70; font-size: 11px; font-weight: 800; }
+.security-note strong { font-size: 11px; }
+.security-note span { color: #60706e; font-size: 10px; line-height: 1.55; }
+button { width: 100%; height: 40px; border: 0; border-radius: 6px; background: #117b70; color: white; cursor: pointer; font-weight: 750; }
+button:disabled { cursor: wait; opacity: .65; }
+button.secondary { margin-top: 8px; background: #e6efed; color: #17665f; border: 1px solid #bdd3cf; }
+button[hidden] { display: none; }
+output { display: block; min-height: 18px; margin-top: 10px; color: #117b70; font-size: 11px; line-height: 1.55; overflow-wrap: anywhere; }
+output.working { color: #4e6260; }
+output.success { color: #117b70; }
+output.error { color: #c13f32; }

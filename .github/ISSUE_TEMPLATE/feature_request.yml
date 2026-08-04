@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose a connector, target capability, or operator workflow.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Operator problem
+      description: Describe the repeated task or unsupported protocol capability.
+    validations:
+      required: true
+  - type: dropdown
+    id: extension
+    attributes:
+      label: Smallest likely extension
+      options:
+        - Connector Manifest
+        - JSON Connector
+        - Native Go Source Connector
+        - Target Adapter
+        - Core workflow or UI
+        - Unsure
+  - type: textarea
+    id: contract
+    attributes:
+      label: Sanitized protocol evidence
+      description: Provide relative paths, methods, field names, pagination, billing units, and error envelopes without secrets.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Include empty groups, zero prices, failures, resource limits, and rollback expectations where relevant.

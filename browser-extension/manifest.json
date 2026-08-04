@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "RelayOps 登录配对助手",
+  "version": "1.3.8",
+  "description": "在用户主动确认后，将当前上游站点的登录态安全配对到 RelayOps。",
+  "permissions": ["activeTab", "cookies", "scripting", "storage", "alarms", "tabs"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "配对当前上游登录态",
+    "default_popup": "popup.html"
+  },
+  "background": { "service_worker": "background.js" }
+}

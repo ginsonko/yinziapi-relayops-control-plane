@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "example-json-catalog",
+  "limits": {
+    "timeout_seconds": 20,
+    "max_response_bytes": 2097152
+  },
+  "endpoints": [
+    {
+      "name": "catalog",
+      "method": "GET",
+      "path": "/api/catalog",
+      "headers": {
+        "Authorization": {
+          "credential_ref": "authorization"
+        }
+      },
+      "pagination": {
+        "mode": "page",
+        "parameter": "page",
+        "start_page": 1,
+        "max_pages": 10
+      },
+      "groups": {
+        "items_path": "$.data[*]",
+        "external_id": {"path": "$.group.id", "required": true},
+        "name": {"path": "$.group.name"},
+        "ratio": {"path": "$.group.ratio"},
+        "model_ids": {"path": "$.id"}
+      },
+      "models": {
+        "items_path": "$.data[*]",
+        "external_id": {"path": "$.id", "required": true},
+        "name": {"path": "$.name"},
+        "group": {"path": "$.group.id"},
+        "billing_mode": {"path": "$.billing.mode"},
+        "currency": {"path": "$.pricing.currency"},
+        "price_function": {
+          "currency": {"path": "$.pricing.currency"},
+          "basis": {"constant": "declared_money"},
+          "input_per_1m": {"path": "$.pricing.input_per_1m"},
+          "output_per_1m": {"path": "$.pricing.output_per_1m"},
+          "per_request": {"path": "$.pricing.per_request"},
+          "per_second": {"path": "$.pricing.per_second"}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RelayOps 登录配对</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header><span>R</span><div><strong>登录配对助手</strong><small id="site">正在读取当前站点</small></div></header>
+    <label><span>RelayOps 地址<small>默认本机端口 18180，不会扫描其他端口</small></span><input id="relayops" value="http://127.0.0.1:18180" placeholder="http://127.0.0.1:18180" autocomplete="off" spellcheck="false"></label>
+    <label><span>一次性配对码<small>在对应上游的凭据页面生成</small></span><input id="code" placeholder="粘贴 5 分钟内生成的配对码" autocomplete="off" spellcheck="false"></label>
+    <div class="security-note"><strong>读取前先核验</strong><span>依次确认 RelayOps、配对码和当前站点。三项全部匹配后，才读取当前域的 Cookie 与筛选后的登录存储。</span></div>
+    <button id="pair">检查并配对当前登录态</button>
+    <button id="custody" class="secondary" hidden>停止当前站点托管</button>
+    <output id="status" role="status" aria-live="polite"></output>
+  </main>
+  <script src="capture.js"></script>
+  <script src="custody-client.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

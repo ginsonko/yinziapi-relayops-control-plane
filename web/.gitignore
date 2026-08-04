@@ -1,0 +1,5 @@
+node_modules/
+dist/
+*.tsbuildinfo
+rsbuild.config.js
+rsbuild.config.d.ts

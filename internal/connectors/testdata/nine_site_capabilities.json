@@ -1,0 +1,11 @@
+[
+  {"name":"MDKJ","adapter":"sub2api_upstream","catalog_path":"/api/v1/channels/available","catalog_role":"customer_session","public_catalog":false,"balance_role":"customer_session","current_boundary":"authenticated_customer_catalog_and_balance"},
+  {"name":"DKBY","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"customer_session","public_catalog":false,"balance_role":"customer_session","current_boundary":"session_and_user_id_required"},
+  {"name":"AIZZZ","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"customer_session","public_catalog":false,"balance_role":"customer_session","current_boundary":"quota_unit_from_public_status"},
+  {"name":"BiuAPI","adapter":"sub2api_upstream","catalog_path":"/api/v1/channels/available","catalog_role":"customer_session","public_catalog":false,"balance_role":"customer_session","current_boundary":"authenticated_customer_catalog_and_balance"},
+  {"name":"Doro","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"anonymous","public_catalog":true,"balance_role":"customer_session","current_boundary":"private_balance_not_verified"},
+  {"name":"快跑","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"anonymous","public_catalog":true,"balance_role":"customer_session","current_boundary":"private_balance_not_verified"},
+  {"name":"OPCC","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"anonymous","public_catalog":true,"balance_role":"customer_session","current_boundary":"private_balance_not_verified"},
+  {"name":"52CodeFlow","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"anonymous","public_catalog":true,"balance_role":"customer_session","current_boundary":"intermittent_connection_reset"},
+  {"name":"CodexAPIs","adapter":"newapi","catalog_path":"/api/pricing","catalog_role":"anonymous","public_catalog":true,"balance_role":"customer_session","current_boundary":"private_balance_not_verified"}
+]

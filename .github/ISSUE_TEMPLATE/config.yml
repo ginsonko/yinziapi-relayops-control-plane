@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/ginsonko/yinziapi-relayops-control-plane/security/advisories/new
+    about: Report credentials, authorization bypasses, SSRF, or other security issues privately.

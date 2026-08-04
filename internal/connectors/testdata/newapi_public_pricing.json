@@ -1,0 +1,38 @@
+{
+  "_": "volatile-response-marker",
+  "auto_groups": ["economy"],
+  "data": [
+    {
+      "model_name": "gpt-5.6-sol",
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "model_price": 0,
+      "completion_ratio": 4,
+      "cache_ratio": 0.1,
+      "create_cache_ratio": 1.25,
+      "enable_groups": ["economy", "stable"],
+      "billing_mode": "tiered_expr",
+      "billing_expr": "tier(\"base\", p * 2.5 + c * 10)"
+    },
+    {
+      "model_name": "gpt-image-2",
+      "quota_type": 1,
+      "model_ratio": 0,
+      "model_price": 0.15,
+      "completion_ratio": 0,
+      "enable_groups": ["image"]
+    }
+  ],
+  "group_ratio": {
+    "economy": 0.05,
+    "stable": 0.1,
+    "image": 0.08
+  },
+  "pricing_version": "catalog-v1",
+  "success": true,
+  "usable_group": {
+    "economy": "economy",
+    "stable": "stable",
+    "image": "image"
+  }
+}
